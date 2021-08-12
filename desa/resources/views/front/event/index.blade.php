@@ -1,7 +1,7 @@
 @extends('layouts.front')
 
 @section('content')
-    <div class="inn-body-section pad-bot-55">
+    <div class="inn-body-section pad-bot-55 custom-bg-login">
         <div class="container">
             <div class="row">
                 <div class="page-head">
@@ -16,10 +16,10 @@
                 </div>
                 <!--TYPOGRAPHY SECTION-->
                 @if(count($events) > 0)
-                    <div class="col-md-12">
-                        <div class="head-typo typo-com">
+                    <div class="col-md-12" >
+                        <div class="head-typo typo-com" style="background-color:rgba(139,159,157,0.4)">
                             <h2>Berita</h2>
-                            <p>Berita saat ini</p>
+                            <p style="color:black">Berita saat ini</p>
                             @foreach($events as $event)
                             {!! Form::open(array('url' => 'event/'.$event->id.'/book', 'class' => 'col s12')) !!}
                             {{ Form::hidden('_method', 'POST') }}
@@ -54,9 +54,9 @@
                         </div>
                     </div>
                     <div class="col-md-12">
-                        <div class="head-typo typo-com">
+                        <div class="head-typo typo-com" style="background-color:rgba(139,159,157,0.4)">
                             <h2>Berita yang telah berlalu.</h2>
-                            <p>Semua Berita yang sudah berlalu.</p>
+                            <p style="color:black">Semua Berita yang sudah berlalu.</p>
                             @foreach($events as $event)
                             @continue($event->date > today()->format('Y-m-d') || $event->date == today()->format('Y-m-d'))
                             <!--EVENT-->
@@ -66,7 +66,7 @@
                                         <h3>{{ $event->name }}</h3> 
                                         <!-- <span><strong>Date: </strong> {{ \Carbon\Carbon::parse($event->date)->toFormattedDateString() }}</span>
                                         <p><strong>Price: </strong>Rs. {{ $event->price }}</p> -->
-                                        <p>{{ $event->description }}</p>
+                                        <p style="color:black">{{ $event->description }}</p>
                                     </div>
                                 </div>
                                 <!--END EVENT-->
@@ -75,7 +75,7 @@
                     </div>
                 @else
 
-                    <h3>No Events are currently being hosted in our hotel.</h3>
+                    <h3>Tidak ada data.</h3>
                 @endif
                 <!--END TYPOGRAPHY SECTION-->
             </div>

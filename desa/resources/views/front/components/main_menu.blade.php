@@ -17,14 +17,39 @@
                 </li>
                 <li><a href="{{ url('/kegiatan') }}">Kegiatan</a>
                 </li>
-                @if(count(\App\Model\Page::where('title', 'About')->where('status', true)->get()) > 0)
-                <li><a href="{{ url('/about') }}">Tentang</a>
-                </li>
-                @endif
+                
+                <!-- <li><a href="{{ url('/about') }}">Tentang</a>
+                </li> -->
+                <li><a class='dropdown-button' href='#' data-activates='dropdown-tentang'> Tentang <i
+                                    class="fa fa-angle-down"></i></a>
+                    </li>
+                
+                    
+
                 <li><a href="{{ url('/contact') }}">Profil</a>
                 </li>
 
-
+              
+                    <!-- Dropdown Structure -->
+                    <ul id='dropdown-tentang' class='dropdown-content drop-con-man'>
+                       
+                        <li>
+                            <a href="{{ url('/peraturan_desa') }}"><img src="{{ asset("front/images/icon/15.png") }}" alt=""> Peraturan Desa</a>
+                        </li>
+                        <li>
+                            <a href="{{ url('/penerima_blt') }}"><img src="{{ asset("front/images/icon/1.png") }}" alt=""> Penerima BLT
+                                </a>
+                        </li>
+                        <li>
+                            <a href="{{ url('/aparat_desa') }}"><img src="{{ asset("front/images/icon/15.png") }}" alt=""> Aparat Desa</a>
+                        </li>
+                        <li>
+                            <a href="{{ url('/data_desa') }}"><img src="{{ asset("front/images/icon/1.png") }}" alt=""> Data Desa
+                                </a>
+                        </li>
+                       
+                    </ul>
+                
 @auth
       
             <div class="top-bar">

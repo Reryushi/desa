@@ -33,7 +33,9 @@
                     @if (Auth::guest())
                     <li><a href="{{ route('register') }}">Register</a>
                     </li>
-                    <li><a href="{{ route('login') }}">Login</a>
+                    <li><a href="{{ route('login') }}">Login sebagai masyarakat</a>
+                    </li>
+                    <li><a href="{{ route('staff.login') }}">Login sebagai staff</a>
                     </li>
                     @endif
                     

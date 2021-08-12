@@ -25,6 +25,12 @@ Route::get('/', 'Front\HomeController@index')->name('home');
 
 // Routes for Front
 Route::get('/', 'Front\HomeController@index')->name('home');
+
+Route::get('/peraturan_desa', 'Front\TentangController@peraturan_desa');
+Route::get('/penerima_blt', 'Front\TentangController@penerima_blt');
+Route::get('/aparat_desa', 'Front\TentangController@aparat_desa');
+Route::get('/data_desa', 'Front\TentangController@data_desa');
+
 Route::get('/contact', 'Front\PageController@contact');
 Route::get('/about', 'Front\PageController@about');
 Route::post('/subscribe', 'Front\SubscriberController@store');

@@ -60,7 +60,7 @@
           top: 0;
           width: 100%;
           height: 100%;
-          opacity: 0.5;
+          opacity: 0.1;
          
           background-repeat: no-repeat;
           background-position: 50% 0;
