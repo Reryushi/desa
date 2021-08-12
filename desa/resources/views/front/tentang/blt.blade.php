@@ -6,7 +6,7 @@
             <div class="row">
                 <div class="page-head">
                     <br><br>
-                    <h2>Semua Aparat Desa</h2>
+                    <h2>Semua Penerima BLT</h2>
                     <div class="head-title">
                         <div class="hl-1"></div>
                         <div class="hl-2"></div>
@@ -15,33 +15,37 @@
                    
                 </div>
                 <!--TYPOGRAPHY SECTION-->
-                @if(count($aparat) > 0)
+                @if(count($ktp_kk) > 0)
                    
                     <div class="col-md-12">
                         <div class="head-typo typo-com" style="background-color:rgba(139,159,157,0.4)">
-                            <h2>Aparat desa yang saat ini aktif.</h2>
+                            <h2>Data warga yang saat ini mendapatkan blt.</h2>
                             <!-- <p style="color:black">Semua Berita yang sudah berlalu.</p> -->
                            <?php $index = 0; ?>
-                            @foreach($aparat as $aparat)
-                            @continue($aparat->date > today()->format('Y-m-d') || $aparat->date == today()->format('Y-m-d'))
+                            @foreach($ktp_kk as $ktp_kk)
+                            @continue($ktp_kk->date > today()->format('Y-m-d') || $ktp_kk->date == today()->format('Y-m-d'))
                             <!--EVENT-->
                             <?php $index++ ?>
                                 <div class="row events">
-                                    <!-- <div class="col-md-2"> <img src="{{ ('front/images/event/'. $aparat->image) }}" alt="" /> </div> -->
-                                    <div class="col-md-3">
-                                        <h4 style="color:#0b7e95">{{$index}}. {{ $aparat->nama }}</h4> 
-                                    </div>
-                                    <div class="col-md-3">
-                                        <p style="color:black">jabatan : {{ $aparat->jabatan }}</p>
+                                    <!-- <div class="col-md-2"> <img src="{{ ('front/images/event/'. $ktp_kk->image) }}" alt="" /> </div> -->
+                                    <div class="col-md-2">
+                                        <h4 style="color:#0b7e95">{{$index}}. {{ $ktp_kk->nama_lengkap }}</h4> 
                                     </div>
                                     <div class="col-md-2">
-                                        <p style="color:black">nip : {{ $aparat->nip }}</p>
+                                        <p style="color:black">nomor kk : {{ $ktp_kk->no_kk }}</p>
                                     </div>
                                     <div class="col-md-2">
-                                        <p style="color:black">niap : {{ $aparat->niap }}</p>
+                                        <p style="color:black">pekerjaan : {{ $ktp_kk->pekerjaan }}</p>
+                                    </div>
+                                    
+                                    <div class="col-md-2">
+                                        <p style="color:black">status : {{ $ktp_kk->ket }}</p>
+                                    </div>  
+                                    <div class="col-md-3">
+                                        <p style="color:black">alamat : {{ $ktp_kk->alamat }}</p>
                                     </div>  
                                 </div>
-                                <!--END aparat-->
+                                <!--END ktp_kk-->
                             @endforeach
                            
                         </div>

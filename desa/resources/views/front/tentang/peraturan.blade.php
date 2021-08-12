@@ -21,13 +21,15 @@
                         <div class="head-typo typo-com" style="background-color:rgba(139,159,157,0.4)">
                             <h2>Peraturan yang telah disepakati desa.</h2>
                             <!-- <p style="color:black">Semua Berita yang sudah berlalu.</p> -->
+                            <?php $index = 0; ?>
                             @foreach($peraturan as $peraturan)
                             @continue($peraturan->date > today()->format('Y-m-d') || $peraturan->date == today()->format('Y-m-d'))
                             <!--EVENT-->
+                            <?php $index++ ?>
                                 <div class="row events">
                                     <!-- <div class="col-md-2"> <img src="{{ ('front/images/event/'. $peraturan->image) }}" alt="" /> </div> -->
                                     <div class="col-md-2">
-                                        <h4 style="color:#0b7e95">{{ $peraturan->jenis }} no. {{ $peraturan->id }}/{{ $peraturan->tgl_ditetapkan }}</h4> 
+                                        <h4 style="color:#0b7e95">{{$index}}. {{ $peraturan->jenis }} no. {{ $peraturan->id }}/{{ $peraturan->tgl_ditetapkan }}</h4> 
                                     </div>
                                     <div class="col-md-8">
                                         <p style="color:black">Tentang : {{ $peraturan->tentang }}</p>
