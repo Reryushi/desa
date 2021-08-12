@@ -88,7 +88,9 @@
                                 <div class="h-gal">
                                     <ul>
                                         @foreach($room_type->images as $image)
-                                        <li><img class="materialboxed" data-caption="{{ $image->caption }}" src="{{('/front/images/room/'.$image->name)}}" alt="">
+                                        <li><img class="materialboxed" data-caption="{{ $image->caption }}" 
+                                        src="{{ url('front/images/room/'.$image->name) }}" alt="">
+                                             
                                         </li>
                                         @endforeach
                                     </ul>

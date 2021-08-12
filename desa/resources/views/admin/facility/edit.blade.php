@@ -80,7 +80,7 @@
                         maxlength: 50
                     },
                     description: {
-                        maxlength: 200
+                        maxlength: 2000
                     },
                     gender: {
                         required: true

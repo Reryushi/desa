@@ -3,7 +3,7 @@
 @section('content')
     <div class="db-cent-2 container">
         <div class="db-2-main-1" >
-            <div class="db-2-main-2"> <img src="{{ asset("front/images/icon/6.png") }}" alt="" style="color:black"> <span> Layanan diunduh</span>
+            <div class="db-2-main-2"> <img src="{{ asset("front/images/icon/6.png") }}" alt="" style="color:black"> <span> Layanan dibuat</span>
                 <p></p>
                 <h2>{{ $total_room_bookings }}</h2> </div>
         </div>
@@ -23,8 +23,9 @@
             <div class="db-title">
                 <h3><img src="{{ asset("front/images/icon/6.png") }}" alt=""/> Surat Dibuat</h3>
                 <p>Surat Layanan yang telah dibuat</p>
-            
+                <a href="{{ url('/dashboard/layanan') }}" class="btn btn-primary">Buat Surat</a>
             </div>
+            
             <table class="bordered responsive-table">
                 <thead>
                 <tr>

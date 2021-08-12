@@ -41,6 +41,11 @@ return [
             'provider' => 'users',
         ],
 
+        'masyarakat' => [
+            'driver' => 'session',
+            'provider' => 'masyarakat',
+        ],
+
         'api' => [
             'driver' => 'token',
             'provider' => 'users',
@@ -70,10 +75,10 @@ return [
             'model' => App\Model\User::class,
         ],
 
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
+        'masyarakat' => [
+            'driver' => 'database',
+            'table' => 'b1_buku_induk_penduduk',
+        ],
     ],
 
     /*
@@ -94,6 +99,12 @@ return [
     'passwords' => [
         'users' => [
             'provider' => 'users',
+            'table' => 'password_resets',
+            'expire' => 60,
+        ],
+
+        'masyarakat' => [
+            'provider' => 'masyarakat',
             'table' => 'password_resets',
             'expire' => 60,
         ],

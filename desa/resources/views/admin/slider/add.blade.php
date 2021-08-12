@@ -124,7 +124,7 @@
                         required: true
                     },
                     address: {
-                        maxlength: 200
+                        maxlength: 2000
                     },
                     about: {
                         maxlength: 300

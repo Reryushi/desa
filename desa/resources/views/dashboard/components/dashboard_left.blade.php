@@ -2,11 +2,12 @@
     <div class="db-left">
         <div class="db-left-1" style="
                                                 padding: 0px 50px 30px 50px;
-                                                background: url({{'/storage/avatars/'.Auth::user()->avatar}}) no-repeat center center;
+                                                background: url({{'/storage/avatars/'.Auth::guard('masyarakat')->user()->nama_lengkap}}) no-repeat center center;
+                                                                                    
                                                 background-size: cover;
                                                 position: relative;">
-            <h4>{{ Auth::user()->first_name }}</h4>
-            <p>{{ Auth::user()->address }}</p>
+            <br><h4>{{ Auth::user()->nama_lengkap }}</h4>
+            <p>{{ Auth::user()->nik }}</p>
         </div>
 
 

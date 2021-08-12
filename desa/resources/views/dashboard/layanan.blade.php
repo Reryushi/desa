@@ -14,7 +14,7 @@
                 <div class="">
                 <div class="card-body" >
                     
-                    <a href="layanan/surat_ket_catatan_kepolisian" class="btn btn-primary" >SK Catatan Kepolisian</a>
+                    <a href="layanan/surat_ket_catatan_kepolisian/create" class="btn btn-primary" >SK Catatan Kepolisian</a>
                 </div>
                 </div>
             </div>
@@ -25,7 +25,7 @@
                 <div class="">
                 <div class="card-body" >
                     
-                    <a href="layanan/surat_ket_penduduk" class="btn btn-primary">SK Penduduk</a>
+                    <a href="layanan/surat_ket_penduduk/create" class="btn btn-primary">SK Penduduk</a>
                 </div>
                 </div>
             </div>
@@ -36,7 +36,7 @@
                 <div class="">
                 <div class="card-body" >
                     
-                    <a href="layanan/surat_ket_pengantar" class="btn btn-primary">SK Pengantar</a>
+                    <a href="layanan/surat_ket_pengantar/create" class="btn btn-primary">SK Pengantar</a>
                 </div>
                 </div>
             </div>

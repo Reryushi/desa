@@ -13,6 +13,9 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/test','Front\RoomBookingController@rekap_kamar');
 // Authentication Routes
 Auth::routes();
+Route::get('login-staff', 'Auth\LoginStaff@showLoginForm')->name('login.staff');
+Route::post('login-staff', 'Auth\LoginStaff@login')->name('staff.login');
+
 
 // Route::post('book-room', 'admin\BookingsController@bookRoom')->name('admin.bookRoom');
 // Route::get('search-room', 'front\RoomTypeController@searchRoom2')->name('search-room2');
@@ -41,7 +44,7 @@ Route::get('/kegiatan/{id}', 'Front\KegiatanController@show');
 
 Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 // Routes for Dashboard
-Route::group(['prefix' => 'dashboard', 'middleware' => 'auth'], function () {
+Route::group(['prefix' => 'dashboard', 'middleware' => 'auth:masyarakat'], function () {
     Route::get('/', 'Dashboard\HomeController@index');
     Route::get('/room/booking', 'Dashboard\RoomBookingController@index');
 

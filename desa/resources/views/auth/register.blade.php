@@ -17,7 +17,7 @@
                        
                         <h2 style="color:white">Nuwono Tasya Guesthouse</h2>
                     </div>
-                        <form class="col s12" method="POST" action="{{ route('register') }}">
+                        <form class="col s12" method="POST" action="{{ route('register') }}" style="background-image: url('front/images/background/card.jpg');">
                             @csrf
                             <div class="row">
                                 <div class="input-field col s12">

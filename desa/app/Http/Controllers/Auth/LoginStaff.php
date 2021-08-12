@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
 
-class LoginController extends Controller
+class LoginStaff extends Controller
 {
     /*
     |--------------------------------------------------------------------------
@@ -21,6 +21,10 @@ class LoginController extends Controller
 
     use AuthenticatesUsers;
 
+    public function showLoginForm()
+    {
+        return view('auth.loginStaff');
+    }
     /**
      * Create a new controller instance.
      *
@@ -31,26 +35,11 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-    public function username()
-    {
-        return 'nik';
-    }
-
-    // public function password()
-    // {
-    //     return 'phone';
-    // }
-
-    protected function guard()
-    {
-        return Auth::guard('masyarakat');
-    }
-
     protected function redirectTo()
     {
-        
+        if(Auth::user()->role == 'admin'){
+            return '/admin';
+        }
         return '/dashboard';
     }
-
-
 }

@@ -1,7 +1,7 @@
 @extends('layouts.login-regis')
 
 @section('content')
-    <div class="inn-body-section pad-bot-55 custom-bg-login">
+    <div class="inn-body-section pad-bot-55 custom-bg-admin">
         <div class="container">
             <div class="row">
                 
@@ -11,8 +11,9 @@
                     <div class="head-typo collap-expand inn-com-form2">
                     <div class="page-head">
                     <br>
-                    <h2 style="color:#1c87d8">Gunung Katun Tanjungan</h2>
-                    <a href="/"><img src="{{ asset("front/images/logo/logo-tiyuh.png") }}" width="200px" alt="" style="padding-right:15px"/></a>
+                    <h2 style="color:#1c87d8">Staff GKT</h2>
+                    <h2 style="color:#1c87d8"></h2>
+                    <a href="/"><img src="{{ asset("front/images/logo/#") }}" width="200px" alt=""/></a>
                     <div class="head-title">
                         <div class="hl-1"></div>
                         <div class="hl-2"></div>
@@ -21,16 +22,16 @@
                         
                     </div>
                 
-                        <form class="col s12 " method="POST" action="{{ route('login') }}" style="background-image: url('front/images/background/card.jpg');">
+                        <form class="col s12 " method="POST" action="{{ route('staff.login') }}" style="background-image: url('front/images/background/card2.jpg');">
                             @csrf
                             <div class="row ">
                                 <div class="input-field col s12 ">
-                                    <input name="nik" type="text"
-                                           class="validate {{ $errors->has('nik') ? ' invalid' : '' }}" value="{{ old('nik') }}" required>
-                                    <label>NIK</label>
-                                    @if ($errors->has('nik'))
+                                    <input name="email" type="text"
+                                           class="validate {{ $errors->has('email') ? ' invalid' : '' }}" value="{{ old('email') }}" required>
+                                    <label>Username</label>
+                                    @if ($errors->has('email'))
                                         <span class="help-block">
-                                        <strong>{{ $errors->first('nik') }}</strong>
+                                        <strong>{{ $errors->first('email') }}</strong>
                                     </span>
                                     @endif
                                 </div>
@@ -80,6 +81,8 @@
                                     </a>
                                 </div>
                             </div>
+
+                            
                         </form>
                     </div>
                 </div>

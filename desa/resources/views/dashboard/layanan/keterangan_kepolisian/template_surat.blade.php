@@ -20,7 +20,7 @@
 
 <div class="card">
     <div class="card-header" style="padding:10px ">
-        Buat Surat Keterangan Penduduk
+        Buat Surat Keterangan Catatan Kepolisian
     </div>
     <div class="card-body" >
     

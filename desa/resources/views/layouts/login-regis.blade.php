@@ -4,14 +4,14 @@
 
 
 <head>
-    <title>{{ config('app.name', 'Nuwono Tasya Guesthouse') }}</title>
+    <title>{{ config('app.name', 'Gunung Katun Tanjungan') }}</title>
     <!-- META TAGS -->
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- FAV ICON(BROWSER TAB ICON) -->
-    <link rel="icon" type="image/png" sizes="96x96" href="{{asset('front/images/logo/logo_only.png')}}">
+    <link rel="icon" type="image/png" sizes="96x96" href="{{asset('front/images/logo/logo-tiyuh.png')}}">
     <!-- GOOGLE FONT -->
     <link href="https://fonts.googleapis.com/css?family=Poppins%7CQuicksand:500,700" rel="stylesheet">
     @section('styles')
@@ -41,15 +41,20 @@
 
     <style> 
         .custom-bg {
-          background-image: url("/front/images/BG_new.jpg");
+          background-image: url("front/images/BG_new.jpg");
           background-size: cover;
         }
         .custom-bg-login {
-          background-image: url("/front/images/background/bg_login.jpg");
+          background-image: url("front/images/background/bg_login.jpg");
+          background-size: cover;
+        }
+
+        .custom-bg-admin {
+          background-image: url("front/images/background/admin.jpg");
           background-size: cover;
         }
         .custom-bg-card {
-          background-image: url("/front/images/background/card.jpg");
+          background-image: url("front/images/background/card.jpg");
           background-size: cover;
         }
 
@@ -67,7 +72,7 @@
 <!--END HEADER SECTION-->
       <footer>
         <div class="copyright" style="text-align:center;font-size:12px">
-            &copy; <script>document.write(new Date().getFullYear())</script>, developed by A.M with Paper Dashboard and Bootstrap
+            &copy; <script>document.write(new Date().getFullYear())</script>, developed by Team
         </div>
       </footer>
 @section('scripts')

@@ -76,8 +76,26 @@
                 @if (Auth::guest())
                     <!-- <li><a href="{{ route('register') }}">Register</a>
                     </li> -->
-                    <li><a href="{{ route('login') }}">Login</a>
+                    <!-- <li><a href="{{ route('login') }}">Login</a>
+                    </li> -->
+                    <li><a class='dropdown-button' href='#' data-activates='dropdown2'> Login <i
+                                    class="fa fa-angle-down"></i></a>
                     </li>
+
+                    <div class="all-drop-down">
+                    <!-- Dropdown Structure -->
+                    <ul id='dropdown2' class='dropdown-content drop-con-man'>
+                        
+                        <li>
+                            <a href="{{ url('/login') }}"><img src="{{ asset("front/images/icon/user.png") }}" width="25px" alt=""> Masyarakat</a>
+                        </li>
+                        <li>
+                            <a href="{{ url('/login-staff') }}"> <img src="{{ asset("front/images/icon/admin.png") }}" width="25px" alt=""> Staff
+                                </a>
+                        </li>
+                        
+                    </ul>
+                </div>
                 @endif
             </ul>
         </div>
