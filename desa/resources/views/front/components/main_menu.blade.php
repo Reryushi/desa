@@ -9,7 +9,7 @@
             <ul>
                 <li><a href="{{ url('/') }}">Home</a>
                 </li>
-                <li><a href="{{ url('/dashboard/layanan') }}">Layanan</a>
+                <li><a href="{{ url('/dashboard') }}">Layanan</a>
                 </li>
                 <li><a href="{{ url('/event') }}">Berita</a>
                 </li>
@@ -74,7 +74,7 @@
                     <a href="{{ url('/dashboard') }}"><img src="{{ asset("front/images/icon/15.png") }}" alt=""> User Dashboard</a>
                 </li>
                 <li>
-                    <a href="{{ url('/dashboard/layanan') }}"><img src="{{ asset("front/images/icon/1.png") }}" alt=""> Layanan
+                    <a href="{{ url('/dashboard') }}"><img src="{{ asset("front/images/icon/1.png") }}" alt=""> Layanan
                          </a>
                 </li>
                 <!-- <li>

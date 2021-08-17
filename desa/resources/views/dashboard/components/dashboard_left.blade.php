@@ -18,7 +18,7 @@
                     <a href="{{ url('/dashboard') }}"><img src="{{ asset("front/images/icon/db1.png") }}" alt="" /> All</a>
                 </li> -->
                 <li>
-                    <a href="{{ url('/dashboard/layanan') }}"><img src="{{ asset("front/images/icon/db2.png") }}" alt="" /> Layanan</a>
+                    <a href="{{ url('/dashboard/') }}"><img src="{{ asset("front/images/icon/db2.png") }}" alt="" /> Layanan</a>
                 </li>
                 <!-- <li>
                     <a href="{{ url('/dashboard/event/booking') }}"><img src="{{ asset("front/images/icon/db4.png") }}" alt="" /> Events</a>

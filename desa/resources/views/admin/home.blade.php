@@ -53,18 +53,30 @@
                     <div class="card">
                         <div class="content">
 
-						<!-- @if ($result < 0 && $result_day < 0 )
-                            <div class="row">
+						<!-- @if ($result < 0 && $result_day < 0 )-->
+                             <div class="row">
                                 
 							<div class="col-md-4 col-xl-3">
-								<div class="card bg-c-blue order-card">
+								<div class="card bg-c-green order-card">
 									<div class="card-block">
-										<h5 class="m-b-20">Pesanan kamar bulan ini</h5>
-										<h2 class="text-right"><i class="fa fa-cart-plus f-left"></i><span>{{$monthly_report_room}}</span></h2>
+										<h5 class="m-b-20">Total Surat Masuk</h5>
+										<h2 class="text-right"><i class="fa fa-cart-plus f-left"></i><span>{{$total_surat}}</span></h2>
 										
 									</div>
 								</div>
+							</div> 
+
+							<div class="col-md-4 col-xl-3">
+								<div class="card bg-c-blue order-card" >
+									<div class="card-block">
+										<h5 class="m-b-20">Surat Pending</h5>
+										<h2 class="text-right"><i class="fa fa-credit-card f-left"></i><span>{{$surat_pending}}</span></h2>
+										
+									</div>
+								</div>
+							</div> 
 							</div>
+							<!--
 						@endif
 
 						@if ($result_cost < 0 && $result_cost_day < 0)

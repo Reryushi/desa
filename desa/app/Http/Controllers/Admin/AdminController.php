@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\View;
 use Carbon\Carbon;
 use App\Model\RoomBooking;
+use App\Model_Layanan\SuratUmum;
 
 class AdminController extends BaseController
 {
@@ -34,6 +35,15 @@ class AdminController extends BaseController
                                 ->where('status', 'pending')->count();
         View::share('jml_pending', $jml_pending);
         View::share('jml_paid', $jml_paid);
+
+        $total_pending = SuratUmum::where('status', '0')->count();
+        $sk_kepolisian_pending = SuratUmum::where('jenis', 'SK Kepolisian')->where('status', '0')->count();
+        $sk_pengantar_pending = SuratUmum::where('jenis', 'SK Pengantar')->where('status', '0')->count();
+        $sk_penduduk_pending = SuratUmum::where('jenis', 'SK Penduduk')->where('status', '0')->count();
+            View::share('total_pending', $total_pending);
+            View::share('sk_kepolisian_pending', $sk_kepolisian_pending);
+            View::share('sk_pengantar_pending', $sk_pengantar_pending);
+            View::share('sk_penduduk_pending', $sk_penduduk_pending);
       
     }
 }

@@ -186,15 +186,16 @@
                             <li @if (Request::is('admin/'.strtolower($item['name']).'/*')) class="active" @endif>
                                 <a data-toggle="collapse" href="#layanan">
                                     <i class="{{$item['icon']}}"></i>
-                                    <p>{{$item['name']}}
+                                    <p>
+                                    <span style="color:red; font-size:20px; padding-right:10px">{{$total_pending}}</span> {{$item['name']}}
                                         <b class="caret"></b>
                                     </p>
                                 </a>
                                 <div @if (Request::is('admin/'.strtolower($item['name']).'/*')) class="collapse in" @else class="collapse" @endif id="layanan">
                                     <ul class="nav">
-                                        <li @if (Request::is('admin/'.strtolower($item['name']).'/surat_ket_catatan_kepolisian')) class="active" @endif><a href="{{ url($item['actions']['surat_ket_catatan_kepolisian'])}}">◍ Catatan Kepolisian</a></li>
-                                        <li @if (Request::is('admin/'.strtolower($item['name']).'/surat_ket_penduduk')) class="active" @endif><a href="{{ url($item['actions']['surat_ket_penduduk'])}}">◍ Keterangan Penduduk</a></li>
-                                        <li @if (Request::is('admin/'.strtolower($item['name']).'/surat_ket_pengantar')) class="active" @endif><a href="{{ url($item['actions']['surat_ket_pengantar'])}}">◍ Keterangan Pengantar</a></li>
+                                        <li @if (Request::is('admin/'.strtolower($item['name']).'/surat_ket_catatan_kepolisian')) class="active" @endif><a href="{{ url($item['actions']['surat_ket_catatan_kepolisian'])}}">◍ <span style="color:red; font-size:16px; padding:0 5px 0 5px">{{$sk_kepolisian_pending}}</span>  Catatan Kepolisian</a></li>
+                                        <li @if (Request::is('admin/'.strtolower($item['name']).'/surat_ket_penduduk')) class="active" @endif><a href="{{ url($item['actions']['surat_ket_penduduk'])}}">◍ <span style="color:red; font-size:16px; padding:0 5px 0 5px">{{$sk_penduduk_pending}}</span> Keterangan Penduduk</a></li>
+                                        <li @if (Request::is('admin/'.strtolower($item['name']).'/surat_ket_pengantar')) class="active" @endif><a href="{{ url($item['actions']['surat_ket_pengantar'])}}">◍ <span style="color:red; font-size:16px; padding:0 5px 0 5px">{{$sk_pengantar_pending}}</span> Keterangan Pengantar</a></li>
                                        
                                         
                                     </ul>

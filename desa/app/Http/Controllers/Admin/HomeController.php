@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\AdminController;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use App\Model\RoomBooking;
+use App\Model_Layanan\SuratUmum;
 
 class HomeController extends AdminController
 {
@@ -30,7 +31,9 @@ class HomeController extends AdminController
      */
     public function index()
     {
-        
+        $total_surat =  SuratUmum::all()->count();
+        $surat_pending =  SuratUmum::where('status', 0)->count();
+
         $monthly_report_cost = RoomBooking::where('payment', 1)->where('status', '!=', 'pending')->where('status', '!=', 'cancelled')->whereMonth('start_time', date('m'))->sum('room_cost');
         $monthly_report_room = RoomBooking::where('payment', 1)->where('status', '!=', 'pending')->where('status', '!=', 'cancelled')->whereMonth('start_time', date('m'))->count();
         
@@ -40,6 +43,8 @@ class HomeController extends AdminController
         $result_day = "-1";
         $result_cost_day = '-1';
         return view('admin.home')
+        ->with('total_surat', $total_surat)
+        ->with('surat_pending', $surat_pending)
         ->with('monthly_report_cost', $monthly_report_cost)
         ->with('monthly_report_room', $monthly_report_room)
         ->with('result', $result)

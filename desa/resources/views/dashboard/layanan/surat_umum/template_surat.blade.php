@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.dashboard')
 @section('content')
 <style>
     .form-control {
@@ -8,15 +8,23 @@
     .card {
         background-color:#ebedf0;
     }
+
+    .form-group label{
+        font-size:14px;
+    }
+
+    .form-group input{
+        background-color:white;
+    }
 </style>
 
 <div class="card">
     <div class="card-header" style="padding:10px ">
-        Buat Surat Keterangan Penduduk
+        Buat Surat Keterangan Catatan Kepolisian
     </div>
     <div class="card-body" >
     
-    {!! Form::open(array('url' => 'admin/surat_umum', 'id' => 'template', 'style' => 'padding:20px')) !!}
+    {!! Form::open(array('url' => 'dashboard/layanan/surat_umum', 'id' => 'template', 'style' => 'padding:20px')) !!}
                             {{ Form::hidden('_method', 'POST') }}
                             {{ csrf_field() }}
                             <!-- <div class="row">
@@ -28,7 +36,7 @@
                                     </div>
                                 </div>
                             </div> -->
-                            <div class="row">
+                            <!-- <div class="row" >
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Judul<star>*</star></label>
@@ -45,17 +53,29 @@
                                                placeholder="" >
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label>Form Keterangan<star>*</star></label>
-                                        <input type="text" name="form_keterangan" class="form-control "
-                                               placeholder="" >
+                                        <label>Jenis Surat</label>
+                                        <select name="jenis" class="">
+                                            <option value="SK Kepolisian">Surat Keterangan Kepolisian </option>
+                                            <option value="SK Pengantar">Surat Keterangan Pengantar </option>
+                                            <option value="SK Penduduk">Surat Keterangan Penduduk </option>
+                                        </select>
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Untuk Keperluan<star>*</star></label>
+                                        <input type="text" name="keperluan" class="form-control "
+                                               placeholder="" >
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- <div class="row">
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label>Nomor Surat<star>*</star></label>
@@ -81,7 +101,7 @@
                                                placeholder="" >
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
 
                            
                             <div class="text-center">

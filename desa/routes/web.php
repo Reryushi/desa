@@ -64,6 +64,13 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth:masyarakat'], funct
         'destroy' => 'dashboard.surat_ket_pengantar.destroy',
         'show' => 'dashboard.surat_ket_pengantar.show'
     ]]);
+    Route::resource('layanan/surat_umum', 'Dashboard\Layanan\SuratUmumController', ['names' => [
+        'store' => 'dashboard.surat_umum.store',
+        'index' => 'dashboard.surat_umum.index',
+        'create' => 'dashboard.surat_umum.create',
+        'destroy' => 'dashboard.surat_umum.destroy',
+        'show' => 'dashboard.surat_umum.show'
+    ]]);
     Route::resource('layanan/surat_ket_penduduk', 'Dashboard\Layanan\KeteranganPendudukController', ['names' => [
         'store' => 'dashboard.surat_ket_penduduk.store',
         'index' => 'dashboard.surat_ket_penduduk.index',
@@ -101,27 +108,43 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth:masyarakat'], funct
 Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
 
     //Layanan Surat
-    Route::resource('surat_ket_pengantar', 'Admin\Layanan\KeteranganPengantarController', ['names' => [
-        'store' => 'admin.surat_ket_pengantar.store',
-        'index' => 'admin.surat_ket_pengantar.index',
-        'create' => 'admin.surat_ket_pengantar.create',
-        'destroy' => 'admin.surat_ket_pengantar.destroy',
-        'show' => 'admin.surat_ket_pengantar.show'
+
+    Route::get('/surat_umum/{id}/approve', 'Admin\Layanan\SuratUmumController@approve');
+    Route::get('/surat_umum/{id}/reject', 'Admin\Layanan\SuratUmumController@reject');
+
+    Route::resource('surat_umum', 'Admin\Layanan\SuratUmumController', ['names' => [
+        'store' => 'admin.surat_umum.store',
+        'index' => 'admin.surat_umum.index',
+        'create' => 'admin.surat_umum.create',
+        'destroy' => 'admin.surat_umum.destroy',
+        'show' => 'admin.surat_umum.show'
     ]]);
-    Route::resource('surat_ket_penduduk', 'Admin\Layanan\KeteranganPendudukController', ['names' => [
-        'store' => 'admin.surat_ket_penduduk.store',
-        'index' => 'admin.surat_ket_penduduk.index',
-        'create' => 'admin.surat_ket_penduduk.create',
-        'destroy' => 'admin.surat_ket_penduduk.destroy',
-        'show' => 'admin.surat_ket_penduduk.show'
-    ]]);
-    Route::resource('surat_ket_catatan_kepolisian', 'Admin\Layanan\KeteranganKepolisianController', ['names' => [
-        'store' => 'admin.surat_ket_catatan_kepolisian.store',
-        'index' => 'admin.surat_ket_catatan_kepolisian.index',
-        'create' => 'admin.surat_ket_catatan_kepolisian.create',
-        'destroy' => 'admin.surat_ket_catatan_kepolisian.destroy',
-        'show' => 'admin.surat_ket_catatan_kepolisian.show'
-    ]]);
+
+    Route::get('/surat_ket_pengantar', 'Admin\Layanan\SuratUmumController@sk_pengantar');
+    Route::get('/surat_ket_penduduk', 'Admin\Layanan\SuratUmumController@sk_penduduk');
+    Route::get('/surat_ket_catatan_kepolisian', 'Admin\Layanan\SuratUmumController@sk_kepolisian');
+
+    // Route::resource('surat_ket_pengantar', 'Admin\Layanan\SuratUmumController', ['names' => [
+    //     'store' => 'admin.surat_ket_pengantar.store',
+    //     'index' => 'admin.surat_ket_pengantar.index',
+    //     'create' => 'admin.surat_ket_pengantar.create',
+    //     'destroy' => 'admin.surat_ket_pengantar.destroy',
+    //     'show' => 'admin.surat_ket_pengantar.show'
+    // ]]);
+    // Route::resource('surat_ket_penduduk', 'Admin\Layanan\SuratUmumController', ['names' => [
+    //     'store' => 'admin.surat_ket_penduduk.store',
+    //     'index' => 'admin.surat_ket_penduduk.index',
+    //     'create' => 'admin.surat_ket_penduduk.create',
+    //     'destroy' => 'admin.surat_ket_penduduk.destroy',
+    //     'show' => 'admin.surat_ket_penduduk.show'
+    // ]]);
+    // Route::resource('surat_ket_catatan_kepolisian', 'Admin\Layanan\SuratUmumController', ['names' => [
+    //     'store' => 'admin.surat_ket_catatan_kepolisian.store',
+    //     'index' => 'admin.surat_ket_catatan_kepolisian.index',
+    //     'create' => 'admin.surat_ket_catatan_kepolisian.create',
+    //     'destroy' => 'admin.surat_ket_catatan_kepolisian.destroy',
+    //     'show' => 'admin.surat_ket_catatan_kepolisian.show'
+    // ]]);
 
     //Adminstrasi Umum
     Route::resource('peraturandesa', 'Admin\A\PeraturanDesaController', ['names' => [

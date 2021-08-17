@@ -40,4 +40,9 @@ class BukuIndukPenduduk extends Model
     {
         return $this->hasMany('App\Model_Layanan\KeteranganKepolisian');
     }
+
+    public function surat_umum()
+    {
+        return $this->hasMany('App\Model_Layanan\SuratUmum');
+    }
 }

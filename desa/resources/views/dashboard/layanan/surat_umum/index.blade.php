@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.dashboard')
 @section('style')
     @parent
 @endsection
@@ -10,8 +10,9 @@
                     <div class="card">
                         <div class="content">
                             <div class="toolbar">
-                                <a href="{{ route("admin.surat_umum.create") }}" rel="tooltip" title="Tambah Surat Keterangan"
-                                   class="btn btn-danger" style="margin-right: 20px">
+                                <h5 style="color:green">Tunggu Konfirmasi dari admin agar bisa mendownload surat.</h5>
+                                <a href="{{ route("dashboard.surat_umum.create") }}" rel="tooltip" title="Tambah Surat Umum"
+                                   class="btn btn-danger" style="margin-right: 20px">Buat Surat
                                     <i class="ti-plus"></i>
                                 </a>
                                 <!--Here you can write extra buttons/actions for the toolbar-->
@@ -21,95 +22,76 @@
                                 <thead>
                                     <tr>
                                         <th width="10">
-
+                                        No.
                                         </th>
                                     
+                                    
                                         <th>
-                                        Jenis	
+                                        Jenis Surat
                                         </th>
-                                        <th>
-                                        nomor surat
-                                        </th>
-                                        <th>
-                                        Nama	
-                                        </th>
+                    
                                         <th>
                                         Keperluan
                                         </th>
                                         <th>
-                                        Mulai Berlaku
+                                        Dibuat
                                         </th>
-                                        <th>
-                                        Tanggal Akhir Surat
-                                        </th>
+                                       
                                         
-                                        <th>
-                                            Aksi
-                                        </th>
-
                                         <th>
                                             Status
                                         </th>
-                                        
                                     </tr>
                                 </thead>
                                 <tbody>
+                                <?php $index = 0; ?>
                                     @foreach($surat_umum as $key => $surat_umum)
                                         <tr data-entry-id="{{ $surat_umum->id }}">
+                                        <?php $index++ ?>
                                             <td>
-
+                                            {{$index}}.
                                             </td>
+                                           
                                             <td>
-                                                {{ $surat_umum->jenis ?? '' }}
+                                                {{ $surat_umum->jenis	 ?? '' }}
                                             </td>
-                                            <td>
-                                                {{ $surat_umum->nomor_surat	 ?? '' }}
-                                            </td>
-                                            <td>
-                                                {{ $surat_umum->penduduk->nama_lengkap	 ?? '' }}
-                                            </td>
+                                          
                                             <td>
                                                 {{ $surat_umum->keperluan ?? '' }}
                                             </td>
                                             <td>
                                                 {{ $surat_umum->tgl_surat ?? '' }} 
                                             </td>
-                                            <td>
-                                                {{ $surat_umum->surat_berakhir ?? '' }}
-                                            </td>
-                                            <td>
-                                                <div class="table-icons">
-                                                    <a rel="tooltip" title="Approve"
-                                                        class="btn btn-simple btn-success btn-icon table-action approve"
-                                                        href="{{url('admin/surat_umum/'.$surat_umum->id.'/approve')}}">
-                                                        <i class="ti-check-box"></i>
-                                                    </a>
-                                                    <a rel="tooltip" title="Reject"
-                                                        class="btn btn-simple btn-danger btn-icon table-action reject"
-                                                        href="{{url('admin/surat_umum/'.$surat_umum->id.'/reject')}}">
-                                                        <i class="ti-close"></i>
-                                                    </a>
-                                                </div>
-                                            </td>   
+                                          
+                                            
                                             <td>
                                                 
-                                                    @if ($surat_umum->status == '1')
-                                                        <a class="btn btn-xs " style="background-color:green; color:white" href="{{ route('admin.surat_umum.show', $surat_umum->id) }}">
-                                                            Download
-                                                        </a>
+                                                    <!-- <a class="btn btn-xs btn-primary" href="{{ route('admin.agenda.show', $surat_umum->id) }}">
+                                                        {{ trans('view') }}
+                                                    </a> -->
                                                 
-                                                    @elseif ($surat_umum->status =='2')
-                                                        <label class="btn btn-xs " style="background-color:#8A1511">
-                                                            Ditolak
-                                                        </label>
+                                                @if ($surat_umum->status == '1')
+                                                    <a class="btn btn-xs " style="background-color:green" href="{{ route('dashboard.surat_umum.show', $surat_umum->id) }}">
+                                                        Download
+                                                    </a>
+                                                
 
-                                                    @else
-                                                        <label class="btn btn-xs " >
-                                                            Menunggu
-                                                        </label>
-                                                    @endif
+                                                @elseif ($surat_umum->status =='2')
+                                                    <label class="btn btn-xs " style="background-color:#8A1511">
+                                                        Ditolak
+                                                    </label>
+                                               
                                                 
-                                                  
+                                                @else 
+                                                    <label class="btn btn-xs " >
+                                                        Menunggu
+                                                    </label>
+                                                @endif
+                                                    <!-- <form action="{{ route('admin.agenda.destroy', $surat_umum->id) }}" method="POST" onsubmit="return confirm('{{ trans('areYouSure') }}');" style="display: inline-block;">
+                                                        <input type="hidden" name="_method" value="DELETE">
+                                                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                                        <input type="submit" class="btn btn-xs btn-danger" value="{{ trans('delete') }}">
+                                                    </form> -->
                                             
                                             </td>
 

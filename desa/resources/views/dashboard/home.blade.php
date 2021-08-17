@@ -3,15 +3,15 @@
 @section('content')
     <div class="db-cent-2 container">
         <div class="db-2-main-1" >
-            <div class="db-2-main-2"> <img src="{{ asset("front/images/icon/6.png") }}" alt="" style="color:black"> <span> Layanan dibuat</span>
+            <div class="db-2-main-2"> <img src="{{ asset("front/images/icon/6.png") }}" alt="" style="color:black"> <span> Layanan Pending</span>
                 <p></p>
-                <h2>{{ $total_room_bookings }}</h2> </div>
+                <h2>{{ $total_pending }}</h2> </div>
         </div>
-        <!-- <div class="db-2-main-1">
-            <div class="db-2-main-2"> <img src="{{ asset("front/images/icon/dbc6.png") }}" alt=""> <span> Event Bookings</span>
+        <div class="db-2-main-1">
+            <div class="db-2-main-2"> <img src="{{ asset("front/images/icon/13.png") }}" alt=""> <span> Layanan Terkonfirmasi</span>
                 <p></p>
-                <h2> total_event_bookings </h2> </div>
-        </div> -->
+                <h2> {{$total_terima}} </h2> </div>
+        </div>
         <!-- <div class="db-2-main-1">
             <div class="db-2-main-2"> <img src="{{ asset("front/images/icon/dbc3.png") }}" alt=""> <span> Pembayaran</span>
                 <p></p>
@@ -23,37 +23,53 @@
             <div class="db-title">
                 <h3><img src="{{ asset("front/images/icon/6.png") }}" alt=""/> Surat Dibuat</h3>
                 <p>Surat Layanan yang telah dibuat</p>
-                <a href="{{ url('/dashboard/layanan') }}" class="btn btn-primary">Buat Surat</a>
+                <p style="color:green">Tunggu Konfirmasi dari admin agar bisa mendownload surat.</p>
+                                
+                <a href="{{ route("dashboard.surat_umum.create") }}" class="btn btn-primary">Buat Surat</a>
             </div>
-            
-            <table class="bordered responsive-table">
+            <div class="table-responsive">
+                                <table class="table-bordered table-striped table-hover datatable">
+           
                 <thead>
                 <tr>
                     
-                    <th><br>Nama Surat</th>
+                    <th><br>Jenis Surat</th>
                     <th><br>Nomor Surat</th>
                     <th><br>Tanggal Buat</th>
                     
                     <th><br>Keperluan</th>
-                    <th><br>Aksi</th>
+                    <th><br>Status</th>
     
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($sk_kepolisian as $key => $sk_kepolisian)
-                    <tr data-entry-id="{{ $sk_kepolisian->id }}">
-                        <td>{{ $sk_kepolisian->judul}}</td>
-                        <td>{{ $sk_kepolisian->nomor_surat}}</td>
-                        <td>{{ $sk_kepolisian->tgl_surat}}</td>
-                        <td>{{ $sk_kepolisian->form_keterangan}}</td>
+                @foreach($surat_umum as $key => $surat_umum)
+                    <tr data-entry-id="{{ $surat_umum->id }}">
+                        <td>{{ $surat_umum->jenis}}</td>
+                        <td>{{ $surat_umum->nomor_surat}}</td>
+                        <td>{{ $surat_umum->tgl_surat}}</td>
+                        <td>{{ $surat_umum->keperluan}}</td>
                         <td>
                                                 
                                                    
                                                 
                                             
-                                                    <a class="btn btn-xs btn-info" href="{{ route('dashboard.surat_ket_catatan_kepolisian.show', $sk_kepolisian->id) }}">
-                                                        {{ trans('Download') }}
-                                                    </a>
+                        @if ($surat_umum->status == '1')
+                            <a class="btn btn-xs " style="background-color:green" href="{{ route('dashboard.surat_umum.show', $surat_umum->id) }}">
+                                Download
+                            </a>
+                            
+                        @elseif ($surat_umum->status =='2')
+                            <label class="btn btn-xs " style="background-color:#8A1511">
+                                Ditolak
+                            </label>
+                        
+
+                        @else
+                            <label class="btn btn-xs " >
+                                Menunggu
+                            </label>
+                        @endif
                                                 
                                                    
                                             
@@ -61,49 +77,12 @@
                     </tr>
                 @endforeach
 
-                @foreach($sk_penduduk as $key => $sk_penduduk)
-                    <tr data-entry-id="{{ $sk_penduduk->id }}">
-                        <td>{{ $sk_penduduk->judul}}</td>
-                        <td>{{ $sk_penduduk->nomor_surat}}</td>
-                        <td>{{ $sk_penduduk->tgl_surat}}</td>
-                        <td>{{ $sk_penduduk->keterangan}}</td>
-                        <td>
-                                                
-                                                
-                                                    <a class="btn btn-xs btn-info" href="{{ route('dashboard.surat_ket_penduduk.show', $sk_penduduk->id) }}">
-                                                        {{ trans('Download') }}
-                                                    </a>
-                                                
-                                                 
-                                            
-                        </td>
-
-                    </tr>
-                @endforeach
-
-                @foreach($sk_pengantar as $key => $sk_pengantar)
-                    <tr data-entry-id="{{ $sk_pengantar->id }}">
-                        <td>{{ $sk_pengantar->judul}}</td>
-                        <td>{{ $sk_pengantar->nomor_surat}}</td>
-                        <td>{{ $sk_pengantar->tgl_surat}}</td>
-                        <td>{{ $sk_pengantar->keterangan}}</td>
-                        <td>
-                                                
-                                                    
-                                            
-                                                    <a class="btn btn-xs btn-info" href="{{ route('dashboard.surat_ket_pengantar.show', $sk_pengantar->id) }}">
-                                                        {{ trans('Download') }}
-                                                    </a>
-                                                
-                                                 
-                                            
-                        </td>
-                    </tr>
-                @endforeach
+               
 
 
                 </tbody>
             </table>
+</div>
         </div>
     </div>
     

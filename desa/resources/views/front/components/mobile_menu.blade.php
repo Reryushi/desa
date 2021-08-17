@@ -15,7 +15,7 @@
                 <ul>
                     <li><a href="{{ url('/') }}">Home</a>
                     </li>
-                    <li><a href="{{ url('/dashboard/layanan') }}">
+                    <li><a href="{{ url('/dashboard') }}">
                     Layanan</a>
                     </li>
                     <li><a href="{{ url('/event') }}">Berita</a>

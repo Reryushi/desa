@@ -15,7 +15,7 @@
         Buat Surat Keterangan Penduduk
     </div>
     <div class="card-body">
-    {!! Form::open(array('url' => 'admin/surat_ket_penduduk', 'id' => 'template', 'style' => 'padding:20px')) !!}
+    {!! Form::open(array('url' => 'admin/surat_umum', 'id' => 'template', 'style' => 'padding:20px')) !!}
                             {{ Form::hidden('_method', 'POST') }}
                             {{ csrf_field() }}
                             <!-- <div class="row">

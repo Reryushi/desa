@@ -31,58 +31,37 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label>Judul<star>*</star></label>
-                                        <input type="text" name="judul" class="form-control "
-                                               placeholder="" >
+                                        <label>Jenis<star>*</star></label>
+                                        <select name="jenis" class="form-control">
+                                            <option value="SK Kepolisian">Surat Keterangan Kepolisian </option>
+                                            <option value="SK Pengantar">Surat Keterangan Pengantar </option>
+                                            <option value="SK Penduduk">Surat Keterangan Penduduk </option>
+                                        </select>
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                        <label>Penduduk<star>*</star></label>
-                                        <input type="text" name="penduduk_id" class="form-control "
-                                               placeholder="" >
+                                        <label>Nama Penduduk</label>
+                                        <select name="penduduk_id" id="penduduk_id" class="form-control border-input">
+                                                @foreach($penduduk as $penduduk)
+                                                    <option value="{{ $penduduk->id }}">{{ $penduduk->nama_lengkap }}</option>
+                                                @endforeach
+                                            </select>
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label>Form Keterangan<star>*</star></label>
+                                        <label>Keperluan<star>*</star></label>
                                         <input type="text" name="form_keterangan" class="form-control "
                                                placeholder="" >
                                     </div>
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <div class="form-group">
-                                        <label>Nomor Surat<star>*</star></label>
-                                        <input type="text" name="nomor_surat" class="form-control "
-                                               placeholder="" >
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <div class="form-group">
-                                        <label>Tanggal Surat<star>*</star></label>
-                                        <input type="date" name="tgl_surat" class="form-control "
-                                               placeholder="" >
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <div class="form-group">
-                                        <label>Tanggal Surat Berakhir<star>*</star></label>
-                                        <input type="date" name="surat_berakhir" class="form-control "
-                                               placeholder="" >
-                                    </div>
-                                </div>
-                            </div>
-
+                        
                            
                             <div class="text-center">
                                 <button type="submit" class="btn btn-info btn-fill btn-wd">Buat Surat</button>
