@@ -96,7 +96,7 @@
                 <div class="col-md-12">
                     <div class="row">
                         @foreach($foods as $food)
-                            @continue($food->type !== "Snack")
+                            @continue($food->type !== "lainnya")
                         <div class="res-menu"> <img src="{{ ('front/images/menu/'.$food->image) }}" alt="" />
                             <h3>{{ $food->name }} <span>Rp. {{ $food->price }}</span></h3> <span class="menu-item">{{ $food->description }}</span>
                         </div>

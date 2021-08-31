@@ -32,7 +32,27 @@ class BukuIndukController extends AdminController
     {
         
 
-        $induk = BukuIndukPenduduk::create($request->all());
+        // $induk = BukuIndukPenduduk::create($request->all());
+        $induk = new BukuIndukPenduduk();
+        $induk->nama_lengkap = $request->input('nama_lengkap');
+        $induk->jenis_kelamin = $request->input('jenis_kelamin');
+        $induk->status_perkawinan = $request->input('status_perkawinan');
+        $induk->tempat_lahir = $request->input('tempat_lahir');
+        $tanggal=
+        $induk->tanggal_lahir = $request->input('tanggal_lahir');
+        $induk->agama = $request->input('agama');
+        $induk->pendidikan_terakhir = $request->input('pendidikan_terakhir');
+        $induk->pekerjaan = $request->input('pekerjaan');
+        $induk->tidak_buta_huruf = $request->input('tidak_buta_huruf');
+        $induk->wn = $request->input('wn');
+        $induk->alamat = $request->input('alamat');
+        $induk->status_di_kk = $request->input('status_di_kk');
+        $nik=
+        $induk->nik = $request->input('nik');
+        $induk->nomor_kk = $request->input('nomor_kk');
+        $induk->ket = $request->input('ket');
+        $induk->password = bcrypt($tanggal.$nik);
+        $induk->save();
 
         return redirect()->route('admin.buku_induk.index');
     }

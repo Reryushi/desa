@@ -31,13 +31,16 @@
                                     <div class="form-group">
                                         <label>Jenis<star>*</star></label>
                                         <select name="type" id="type" class="form-control">
-                                            <option value="utama">Utama
+                                            <option value="umkm">UMKM
                                             </option>
-                                            <option value="snack">
-                                                Snack
+                                            <option value="makanan">
+                                                Makanan
                                             </option>
                                             <option value="minuman">
                                                 Minuman
+                                            </option>
+                                            <option value="lainnya">
+                                                lainnya
                                             </option>
                                             
                                         </select>

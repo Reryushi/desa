@@ -49,7 +49,7 @@ class FoodController extends AdminController
     {
         $rules = [
             'name' => 'required|max:100|unique:foods,name',
-            'type' => 'required|in:utama,snack,minuman',
+            'type' => 'required|in:umkm,makanan,minuman,lainnya',
             'image' => 'required|mimes:jpeg, jpg, png',
             'price' => 'required|numeric|min:0',
             'status' => 'required|boolean'
