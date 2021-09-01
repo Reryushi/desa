@@ -14,10 +14,12 @@
                               alt="">
                     <!-- random image -->
                     <div class="caption  slid-cap" 
-                        style=" top: 0; left:0; padding:20px 0 0 20px;  
+                        style=" top: 0; left:0; padding:20px 0 0 20px;
+                        background: linear-gradient(to right, #0572E6, #19BD8F99);
+                        border-radius: 0 0 100px 0;  
                         ">
-                        <h2 style="color:#e8c57a ; ">{{ $image->big_title }}</h2>
-                        <h3 class="" style="color: #e8c57a; text-shadow:
+                        <h2 style="color:white ">{{ $image->big_title }}</h2>
+                        <h3 class="" style="color: white; text-shadow:
                            1px 1px 0 #000,
                          -1px -1px 0 #000,  
                           1px -1px 0 #000,
