@@ -135,19 +135,31 @@ class SuratUmumController extends AdminController
 
         if ($surat_umum->jenis == "SK Kepolisian"){
             $nama_file = 'surat_keterangan_catatan_kriminal'.$surat_umum->nomor_surat.'.doc';
-
+            $file = public_path('/template_surat/surat_ket_catatan_kriminal.rtf');
             return WordTemplate::export($file, $array, $nama_file);
             return redirect('dashboard/layanan/surat_umum');
         }
         elseif ($surat_umum->jenis == "SK Pengantar"){
             $nama_file = 'surat_keterangan_pengantar_'.$surat_umum->nomor_surat.'.doc';
-        
+            $file = public_path('/template_surat/surat_ket_pengantar.rtf');
+            return WordTemplate::export($file, $array, $nama_file);
+            return redirect('dashboard/layanan/surat_umum');
+        }
+        elseif ($surat_umum->jenis == "SK Pergi Kawin"){
+            $nama_file = 'surat_keterangan_pergi_kawin_'.$surat_umum->nomor_surat.'.doc';
+            $file = public_path('/template_surat/surat_ket_pergi_kawin.rtf');
+            return WordTemplate::export($file, $array, $nama_file);
+            return redirect('dashboard/layanan/surat_umum');
+        }
+        elseif ($surat_umum->jenis == "SK Usaha"){
+            $nama_file = 'surat_keterangan_usaha_'.$surat_umum->nomor_surat.'.doc';
+            $file = public_path('/template_surat/surat_ket_usaha.rtf');
             return WordTemplate::export($file, $array, $nama_file);
             return redirect('dashboard/layanan/surat_umum');
         }
         elseif ($surat_umum->jenis == "SK Penduduk"){
             $nama_file = 'surat_keterangan_penduduk_'.$surat_umum->nomor_surat.'.doc';
-        
+            $file = public_path('/template_surat/surat_ket_penduduk.rtf');
             return WordTemplate::export($file, $array, $nama_file);
             return redirect('dashboard/layanan/surat_umum');
         }

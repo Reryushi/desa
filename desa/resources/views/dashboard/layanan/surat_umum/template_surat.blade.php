@@ -56,12 +56,14 @@
                             </div> -->
                             <div class="row">
                                 <div class="col-md-6">
-                                    <div class="form-group">
+                                    <div class="form-group" style=" position: relative;">
                                         <label>Jenis Surat</label>
-                                        <select name="jenis" class="">
+                                        <select name="jenis" class="form-select-sm">
                                             <option value="SK Kepolisian">Surat Keterangan Kepolisian </option>
                                             <option value="SK Pengantar">Surat Keterangan Pengantar </option>
                                             <option value="SK Penduduk">Surat Keterangan Penduduk </option>
+                                            <option value="SK Usaha">Surat Keterangan Usaha </option>
+                                            <option value="SK Pergi Kawin">Surat Keterangan Pergi Kawin </option>
                                         </select>
                                     </div>
                                 </div>
@@ -103,12 +105,12 @@
                                 </div>
                             </div> -->
 
-                           
+                            <br><br><br><br><br><br>
                             <div class="text-center">
                                 <button type="submit" class="btn btn-info btn-fill btn-wd">Buat Surat</button>
                             </div>
                             <div class="clearfix"></div>
                             {!! Form::close() !!}
-    </div>
+    </div><br>
 </div>
 @endsection
